@@ -1,3 +1,27 @@
+// Create scroll to top button
+const scrollToTopBtn = document.createElement('button');
+scrollToTopBtn.className = 'scroll-to-top';
+scrollToTopBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
+document.body.appendChild(scrollToTopBtn);
+
+// Show/hide scroll to top button
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('visible');
+    } else {
+        scrollToTopBtn.classList.remove('visible');
+    }
+});
+
+// Scroll to top when clicked
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
 // Page transition effect
 function navigateWithTransition(url) {
     document.body.style.opacity = '0';
@@ -10,10 +34,10 @@ function navigateWithTransition(url) {
 }
 
 // Add transition to all internal page links
-document.querySelectorAll('a[href^="index.html"], a[href^="rules.html"], a[href^="staff.html"], a[href^="about.html"]').forEach(link => {
+document.querySelectorAll('a[href^="/"], a[href^="index.html"], a[href^="rules.html"], a[href^="staff.html"]').forEach(link => {
     link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
-        if (href && !href.startsWith('#') && !href.startsWith('http')) {
+        if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('mailto:')) {
             e.preventDefault();
             navigateWithTransition(href);
         }
@@ -160,7 +184,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all feature cards and other elements
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.feature-card, .leaderboard-entry, .stat-box, .contact-item');
+    const animatedElements = document.querySelectorAll('.stat-box, .rule-item, .staff-card, .overview-card');
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -168,30 +192,34 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+    
+    // Add ripple effect to buttons
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
 });
 
-// Contact form submission
-document.querySelector('.contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const btn = e.target.querySelector('.btn-primary');
-    const originalText = btn.innerHTML;
-    
-    btn.innerHTML = '<span>Sending...</span>';
-    btn.disabled = true;
-    
-    // Simulate form submission (replace with actual backend call)
-    setTimeout(() => {
-        btn.innerHTML = '<span>✓ Message Sent!</span>';
-        btn.style.background = 'linear-gradient(135deg, #00D26A 0%, #00D26A 100%)';
-        
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.background = 'linear-gradient(135deg, var(--pink) 0%, var(--green) 100%)';
-            btn.disabled = false;
-            e.target.reset();
-        }, 3000);
-    }, 1500);
+// Keyboard shortcut for copying IP (Ctrl/Cmd + K)
+document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        copyIP();
+    }
 });
 
 // Update active nav link on scroll
