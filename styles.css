@@ -693,7 +693,7 @@ body {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    animation: scroll 2s infinite;
+    animation: scroll 1s infinite;
 }
 
 @keyframes scroll {
