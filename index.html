@@ -11,25 +11,25 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="/" class="nav-brand">
+            <a href="/" class="nav-brand" aria-label="MCFruit Home">
                 <span class="logo">🍉</span>
                 <span class="brand-name">MCFruit</span>
             </a>
             <ul class="nav-menu">
-                <li><a href="/" class="nav-link active">Home</a></li>
+                <li><a href="/" class="nav-link active" aria-current="page">Home</a></li>
                 <li><a href="/rules" class="nav-link">Rules</a></li>
                 <li><a href="/staff" class="nav-link">Staff</a></li>
             </ul>
-            <button class="btn btn-primary btn-small" onclick="copyIP()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button class="btn btn-primary btn-small" onclick="copyIP()" aria-label="Copy server IP address to clipboard">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                 </svg>
                 <span>Copy IP</span>
             </button>
-            <div class="hamburger">
+            <div class="hamburger" role="button" aria-label="Toggle mobile menu" aria-expanded="false" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>

@@ -234,11 +234,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Keyboard shortcut for copying IP (Ctrl/Cmd + K)
+// Double-click IP to select it
+const ipElements = document.querySelectorAll('.ip-address, .server-status strong');
+ipElements.forEach(el => {
+    el.addEventListener('dblclick', function() {
+        const range = document.createRange();
+        range.selectNodeContents(this);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        showToast('IP selected! Press Ctrl+C to copy', 'info');
+    });
+    
+    // Make IP elements focusable for keyboard navigation
+    el.setAttribute('tabindex', '0');
+    el.style.cursor = 'text';
+});
+
+// Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
+    // Ctrl/Cmd + K to copy IP
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
         copyIP();
+    }
+    
+    // Press '/' to focus search/navigation (if exists)
+    if (e.key === '/' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {
+        e.preventDefault();
+        const searchInput = document.querySelector('input[type="search"], input[type="text"]');
+        if (searchInput) {
+            searchInput.focus();
+        }
+    }
+    
+    // Escape to clear selection and blur active element
+    if (e.key === 'Escape') {
+        window.getSelection().removeAllRanges();
+        document.activeElement.blur();
     }
 });
 
