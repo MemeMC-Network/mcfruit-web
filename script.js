@@ -192,6 +192,8 @@ setInterval(checkServerStatus, 30000);
 // Navbar background on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    
     if (window.scrollY > 50) {
         navbar.style.background = 'rgba(10, 14, 26, 0.98)';
         navbar.style.boxShadow = '0 5px 20px rgba(255, 79, 121, 0.1)';
