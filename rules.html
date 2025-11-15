@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules - MCFruit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="logo">🍉</span>
+                <span class="brand-name">MCFruit</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="rules.html" class="nav-link active">Rules</a></li>
+                <li><a href="staff.html" class="nav-link">Staff</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+            <button class="btn btn-primary btn-small" onclick="copyIP()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy IP</span>
+            </button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Server Rules</h1>
+            <p class="page-subtitle">Please read and follow all rules to ensure a positive experience for everyone</p>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section class="rules-section">
+        <div class="container">
+            <div class="rules-container">
+                <!-- General Rules -->
+                <div class="rule-category">
+                    <div class="category-header">
+                        <span class="category-icon">📋</span>
+                        <h2>General Rules</h2>
+                    </div>
+                    <div class="rules-list">
+                        <div class="rule-item">
+                            <div class="rule-number">1</div>
+                            <div class="rule-content">
+                                <h3>Be Respectful</h3>
+                                <p>Treat all players, staff members, and community members with respect. Harassment, bullying, discrimination, or hate speech of any kind will not be tolerated.</p>
+                            </div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-number">2</div>
+                            <div class="rule-content">
+                                <h3>No Spam or Advertising</h3>
+                                <p>Do not spam chat with repetitive messages, excessive caps, or character spam. Advertising other servers or services is strictly prohibited.</p>
+                            </div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-number">3</div>
+                            <div class="rule-content">
+                                <h3>English in Global Chat</h3>
+                                <p>Please use English in global chat to ensure everyone can communicate effectively. You may use other languages in private messages.</p>
+                            </div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-number">4</div>
+                            <div class="rule-content">
+                                <h3>No Inappropriate Content</h3>
+                                <p>Do not share inappropriate, offensive, or NSFW content in chat, skins, usernames, or any other form of communication.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gameplay Rules -->
+                <div class="rule-category">
+                    <div class="category-header">
+                        <span class="category-icon">🎮</span>
+                        <h2>Gameplay Rules</h2>
+                    </div>
+                    <div class="rules-list">
+                        <div class="rule-item">
+                            <div class="rule-number">5</div>
+                            <div class="rule-content">
+                                <h3>No Cheating or Hacking</h3>
+                                <p>The use of hacked clients, cheat modifications, or any form of unfair advantage is strictly forbidden. This includes but is not limited to: Kill Aura, Reach, Fly, Speed, X-Ray, and AutoClicker.</p>
+                            </div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-number">6</div>
+                            <div class="rule-content">
+                                <h3>No Exploiting or Bug Abuse</h3>
+                                <p>Exploiting bugs or glitches to gain an unfair advantage is not allowed. If you discover a bug, please report it to staff immediately.</p>
+                            </div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-number">7</div>
+                            <div class="rule-content">
+                                <h3>No Teaming in FFA</h3>
+                                <p>Teaming in Free-For-All game modes is prohibited. Play fairly and individually as intended.</p>
+                            </div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-number">8</div>
+                            <div class="rule-content">
+                                <h3>Play to Win</h3>
+                                <p>Always play competitively and fairly. Throwing matches, stat boosting, or win trading will result in penalties.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Rules -->
+                <div class="rule-category">
+                    <div class="category-header">
+                        <span class="category-icon">👤</span>
+                        <h2>Account Rules</h2>
+                    </div>
+                    <div class="rules-list">
+                        <div class="rule-item">
+                            <div class="rule-number">9</div>
+                            <div class="rule-content">
+                                <h3>No Alt Accounts for Ban Evasion</h3>
+                                <p>Using alternate accounts to evade bans or mutes is strictly prohibited and will result in permanent bans on all accounts.</p>
+                            </div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-number">10</div>
+                            <div class="rule-content">
+                                <h3>Account Security</h3>
+                                <p>You are responsible for the security of your account. Do not share your account credentials with anyone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Punishment Information -->
+                <div class="punishment-info">
+                    <div class="info-header">
+                        <span class="info-icon">⚠️</span>
+                        <h2>Punishment Guidelines</h2>
+                    </div>
+                    <div class="punishment-grid">
+                        <div class="punishment-card">
+                            <h3>Warning</h3>
+                            <p>First-time minor offenses may result in a warning from staff members.</p>
+                        </div>
+                        <div class="punishment-card">
+                            <h3>Temporary Mute</h3>
+                            <p>Chat violations will result in temporary mutes ranging from 1 hour to 7 days.</p>
+                        </div>
+                        <div class="punishment-card">
+                            <h3>Temporary Ban</h3>
+                            <p>Moderate violations will result in temporary bans from 1 day to 30 days.</p>
+                        </div>
+                        <div class="punishment-card severe">
+                            <h3>Permanent Ban</h3>
+                            <p>Severe violations including cheating, severe harassment, or repeated offenses will result in permanent bans.</p>
+                        </div>
+                    </div>
+                    <div class="appeal-notice">
+                        <p><strong>Think you were wrongly punished?</strong> You can appeal your punishment by joining our <a href="#">Discord server</a> and opening a ticket.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <span class="logo">🍉</span>
+                        <span class="brand-name">MCFruit</span>
+                    </div>
+                    <p>The ultimate Minecraft practice network for competitive players.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="index.html">Home</a>
+                    <a href="rules.html">Rules</a>
+                    <a href="staff.html">Staff</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <a href="#">Discord</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">Store</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="rules.html">Rules</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MCFruit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

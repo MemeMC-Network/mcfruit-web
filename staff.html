@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Team - MCFruit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="logo">🍉</span>
+                <span class="brand-name">MCFruit</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="rules.html" class="nav-link">Rules</a></li>
+                <li><a href="staff.html" class="nav-link active">Staff</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+            <button class="btn btn-primary btn-small" onclick="copyIP()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>Copy IP</span>
+            </button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Staff Team</h1>
+            <p class="page-subtitle">Meet the team behind MCFruit</p>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section class="staff-section">
+        <div class="container">
+            <!-- Owners -->
+            <div class="staff-category">
+                <h2 class="staff-category-title">
+                    <span class="category-badge owner">👑 Owners</span>
+                </h2>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Steve/128" alt="Owner" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Owner1</h3>
+                            <span class="staff-role owner">Owner</span>
+                            <p class="staff-bio">Founder and lead developer of MCFruit</p>
+                            <div class="staff-links">
+                                <a href="#" class="staff-link">Discord</a>
+                                <a href="#" class="staff-link">Twitter</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Alex/128" alt="Owner" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Owner2</h3>
+                            <span class="staff-role owner">Owner</span>
+                            <p class="staff-bio">Co-founder and community manager</p>
+                            <div class="staff-links">
+                                <a href="#" class="staff-link">Discord</a>
+                                <a href="#" class="staff-link">Twitter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Administrators -->
+            <div class="staff-category">
+                <h2 class="staff-category-title">
+                    <span class="category-badge admin">⚡ Administrators</span>
+                </h2>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Admin1/128" alt="Admin" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Admin1</h3>
+                            <span class="staff-role admin">Administrator</span>
+                            <p class="staff-bio">Server administration and moderation</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Admin2/128" alt="Admin" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Admin2</h3>
+                            <span class="staff-role admin">Administrator</span>
+                            <p class="staff-bio">Plugin development and maintenance</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Admin3/128" alt="Admin" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Admin3</h3>
+                            <span class="staff-role admin">Administrator</span>
+                            <p class="staff-bio">Event coordination and community engagement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Moderators -->
+            <div class="staff-category">
+                <h2 class="staff-category-title">
+                    <span class="category-badge moderator">🛡️ Moderators</span>
+                </h2>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Mod1/128" alt="Moderator" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Moderator1</h3>
+                            <span class="staff-role moderator">Moderator</span>
+                            <p class="staff-bio">Chat moderation and player support</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Mod2/128" alt="Moderator" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Moderator2</h3>
+                            <span class="staff-role moderator">Moderator</span>
+                            <p class="staff-bio">Report handling and ban appeals</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Mod3/128" alt="Moderator" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Moderator3</h3>
+                            <span class="staff-role moderator">Moderator</span>
+                            <p class="staff-bio">In-game moderation and support</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Mod4/128" alt="Moderator" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Moderator4</h3>
+                            <span class="staff-role moderator">Moderator</span>
+                            <p class="staff-bio">Discord moderation and community support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Helpers -->
+            <div class="staff-category">
+                <h2 class="staff-category-title">
+                    <span class="category-badge helper">💚 Helpers</span>
+                </h2>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Helper1/128" alt="Helper" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Helper1</h3>
+                            <span class="staff-role helper">Helper</span>
+                            <p class="staff-bio">Assisting new players and answering questions</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Helper2/128" alt="Helper" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Helper2</h3>
+                            <span class="staff-role helper">Helper</span>
+                            <p class="staff-bio">Player support and guidance</p>
+                        </div>
+                    </div>
+                    <div class="staff-card">
+                        <img src="https://mc-heads.net/avatar/Helper3/128" alt="Helper" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3 class="staff-name">Helper3</h3>
+                            <span class="staff-role helper">Helper</span>
+                            <p class="staff-bio">Community assistance and support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Info -->
+            <div class="application-section">
+                <div class="application-card">
+                    <h2>Interested in Joining Our Team?</h2>
+                    <p>We're always looking for dedicated and passionate players to join our staff team. If you're interested in helping maintain a positive community and have what it takes to be a staff member, we'd love to hear from you!</p>
+                    <div class="requirements">
+                        <h3>Requirements:</h3>
+                        <ul>
+                            <li>✓ Active on MCFruit for at least 2 months</li>
+                            <li>✓ Good understanding of server rules</li>
+                            <li>✓ Mature and professional attitude</li>
+                            <li>✓ Available for at least 10 hours per week</li>
+                            <li>✓ No previous punishments</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-large">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <span class="logo">🍉</span>
+                        <span class="brand-name">MCFruit</span>
+                    </div>
+                    <p>The ultimate Minecraft practice network for competitive players.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="index.html">Home</a>
+                    <a href="rules.html">Rules</a>
+                    <a href="staff.html">Staff</a>
+                    <a href="about.html">About</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <a href="#">Discord</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">Store</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="rules.html">Rules</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MCFruit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
