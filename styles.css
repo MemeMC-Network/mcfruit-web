@@ -692,8 +692,8 @@ body {
     position: absolute;
     top: 10px;
     left: 50%;
-    transform: translateX(-50%);
-    animation: scroll 1s infinite;
+    transform: translateX(-25%);
+    animation: scroll 2s infinite;
 }
 
 @keyframes scroll {
