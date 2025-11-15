@@ -15,15 +15,21 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--dark);
     color: var(--text);
     overflow-x: hidden;
     line-height: 1.6;
 }
 
-.container {
+.container, .nav-container {
     max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.container-wide {
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -34,14 +40,20 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(10, 14, 26, 0.95);
+    background: rgba(10, 14, 26, 0.98);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 0;
     border-bottom: 1px solid rgba(255, 79, 121, 0.1);
+    transition: all 0.3s ease;
 }
 
-.navbar .container {
+.navbar.scrolled {
+    background: rgba(10, 14, 26, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,6 +61,7 @@ body {
 
 .nav-brand {
     display: flex;
+    text-decoration: none;
     align-items: center;
     gap: 0.5rem;
     font-size: 1.5rem;
@@ -113,6 +126,83 @@ body {
     background: var(--pink);
     border-radius: 3px;
     transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--pink) 0%, var(--green) 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 79, 121, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 2px solid var(--pink);
+}
+
+.btn-secondary:hover {
+    background: var(--pink);
+    transform: translateY(-2px);
+}
+
+/* Page Header */
+.page-header {
+    padding: 120px 0 60px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--dark-light) 0%, var(--dark) 100%);
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-dim);
 }
 
 /* Hero Section */
