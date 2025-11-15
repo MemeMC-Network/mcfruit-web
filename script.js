@@ -263,20 +263,6 @@ ipElements.forEach(el => {
     el.style.cursor = 'text';
 });
 
-// Add keyboard support for hamburger menu
-const hamburger = document.querySelector('.hamburger');
-if (hamburger) {
-    hamburger.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            hamburger.click();
-            hamburger.setAttribute('aria-expanded', 
-                hamburger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-            );
-        }
-    });
-}
-
 // Keyboard shortcuts help modal
 function showKeyboardHelp() {
     const modal = document.createElement('div');
