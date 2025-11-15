@@ -147,6 +147,8 @@ async function checkServerStatus() {
     const playerCount = document.getElementById('player-count');
     const pulse = document.querySelector('.pulse');
     
+    if (!statusText || !playerCount || !pulse) return;
+    
     try {
         // Using mcsrvstat.us API to check server status
         const response = await fetch('https://api.mcsrvstat.us/3/mcfruit.club');
