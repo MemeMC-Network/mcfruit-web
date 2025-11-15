@@ -251,6 +251,62 @@ ipElements.forEach(el => {
     el.style.cursor = 'text';
 });
 
+// Add keyboard support for hamburger menu
+const hamburger = document.querySelector('.hamburger');
+if (hamburger) {
+    hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            hamburger.click();
+            hamburger.setAttribute('aria-expanded', 
+                hamburger.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+            );
+        }
+    });
+}
+
+// Keyboard shortcuts help modal
+function showKeyboardHelp() {
+    const modal = document.createElement('div');
+    modal.className = 'keyboard-help-modal';
+    modal.innerHTML = `
+        <div class="keyboard-help-content">
+            <h2>⌨️ Keyboard Shortcuts</h2>
+            <div class="shortcuts-list">
+                <div class="shortcut-item">
+                    <kbd>Ctrl</kbd> + <kbd>K</kbd>
+                    <span>Copy Server IP</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>/</kbd>
+                    <span>Focus Search</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Esc</kbd>
+                    <span>Clear Selection / Close</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>?</kbd>
+                    <span>Show This Help</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="tip">💡 Double-click IP to select it</span>
+                </div>
+            </div>
+            <button class="close-help btn btn-primary">Got it!</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    
+    // Close button handler
+    modal.querySelector('.close-help').onclick = () => modal.remove();
+    
+    // Close on click outside
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.remove();
+    });
+}
+
 // Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
     // Ctrl/Cmd + K to copy IP
@@ -259,7 +315,7 @@ document.addEventListener('keydown', (e) => {
         copyIP();
     }
     
-    // Press '/' to focus search/navigation (if exists)
+    // Press '/' to focus search/navigation
     if (e.key === '/' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {
         e.preventDefault();
         const searchInput = document.querySelector('input[type="search"], input[type="text"]');
@@ -268,10 +324,21 @@ document.addEventListener('keydown', (e) => {
         }
     }
     
-    // Escape to clear selection and blur active element
+    // Press '?' to show keyboard shortcuts
+    if (e.key === '?' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {
+        e.preventDefault();
+        showKeyboardHelp();
+    }
+    
+    // Escape to clear selection, close modals, and blur
     if (e.key === 'Escape') {
-        window.getSelection().removeAllRanges();
-        document.activeElement.blur();
+        const modal = document.querySelector('.keyboard-help-modal');
+        if (modal) {
+            modal.remove();
+        } else {
+            window.getSelection().removeAllRanges();
+            document.activeElement.blur();
+        }
     }
 });
 
