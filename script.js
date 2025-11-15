@@ -90,11 +90,31 @@ hamburger.addEventListener('click', () => {
     }
 });
 
+// Toast notification system
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `
+        <div class="toast-icon">${type === 'success' ? '✓' : 'ℹ'}</div>
+        <div class="toast-message">${message}</div>
+    `;
+    document.body.appendChild(toast);
+    
+    // Trigger animation
+    setTimeout(() => toast.classList.add('show'), 10);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
 // Copy IP to clipboard
 function copyIP() {
     const ip = 'mcfruit.club';
     navigator.clipboard.writeText(ip).then(() => {
-        // Show feedback
+        showToast('IP copied to clipboard! (mcfruit.club)', 'success');
         const btn = event.target.closest('.btn-primary');
         const originalText = btn.innerHTML;
         btn.innerHTML = '<span>✓ Copied!</span>';
