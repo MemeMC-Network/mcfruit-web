@@ -856,65 +856,169 @@ section {
 
 /* Footer */
 .footer {
-    background: var(--dark-light);
-    padding: 3rem 0;
+    background: linear-gradient(180deg, var(--dark) 0%, #2d5a3f 100%);
+    padding: 3rem 0 1.5rem;
     border-top: 1px solid rgba(255, 79, 121, 0.1);
+    position: relative;
 }
 
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    align-items: start;
+}
+
+.footer-brand-section {
+    text-align: center;
 }
 
 .footer-brand {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-tagline {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+.footer-connect h4,
+.footer-links-section h4 {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.social-icon.discord {
+    background: #5865F2;
+    color: white;
+}
+
+.social-icon.tiktok {
+    background: #000000;
+    color: white;
+}
+
+.social-icon.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+}
+
+.social-icon.twitter {
+    background: #000000;
+    color: white;
+}
+
+.social-icon.youtube {
+    background: #FF0000;
+    color: white;
+}
+
+.social-icon.email {
+    background: #FFA500;
+    color: white;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(255, 79, 121, 0.4);
+}
+
+.footer-links-section {
+    text-align: left;
 }
 
 .footer-links {
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 0.7rem;
 }
 
 .footer-links a {
     color: var(--text-dim);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: inline-block;
 }
 
 .footer-links a:hover {
     color: var(--pink);
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 2rem;
-}
-
-.footer-grid h4 {
-    color: var(--pink);
-    margin-bottom: 1rem;
-}
-
-.footer-grid .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    transform: translateX(5px);
 }
 
 .footer-bottom {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 79, 121, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.status-icon {
+    font-size: 1.2rem;
+}
+
+.status-text {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.footer-copyright {
+    text-align: right;
+    flex: 1;
+}
+
+.footer-copyright p {
     color: var(--text-dim);
+    font-size: 0.85rem;
+    margin: 0.2rem 0;
+}
+
+.footer-disclaimer {
+    font-size: 0.75rem !important;
+    opacity: 0.7;
 }
 
 /* Rules Page */
@@ -1503,14 +1607,34 @@ section {
         grid-template-columns: 1fr;
     }
 
-    .footer-grid {
+    .footer-main {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
         text-align: center;
     }
 
-    .footer-grid .footer-links {
+    .footer-brand-section,
+    .footer-connect,
+    .footer-links-section {
+        text-align: center;
+    }
+
+    .footer-links-section .footer-links {
         align-items: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer-copyright {
+        text-align: center;
     }
 
     .cta-buttons {
