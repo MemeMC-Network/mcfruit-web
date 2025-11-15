@@ -1,3 +1,25 @@
+// Page transition effect
+function navigateWithTransition(url) {
+    document.body.style.opacity = '0';
+    document.body.style.transform = 'scale(0.98)';
+    document.body.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    
+    setTimeout(() => {
+        window.location.href = url;
+    }, 300);
+}
+
+// Add transition to all internal page links
+document.querySelectorAll('a[href^="index.html"], a[href^="rules.html"], a[href^="staff.html"], a[href^="about.html"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('http')) {
+            e.preventDefault();
+            navigateWithTransition(href);
+        }
+    });
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
