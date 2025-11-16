@@ -2095,3 +2095,162 @@ section {
         filter: drop-shadow(0 0 20px rgba(0, 210, 106, 0.8));
     }
 }
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.logo {
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero .logo,
+.footer .logo {
+    display: inline-block;
+}
+
+/* Gradient border animation */
+@keyframes borderRotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.feature-card::before,
+.gamemode-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient(45deg, var(--pink), var(--green), var(--pink));
+    background-size: 200% 200%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: borderRotate 3s linear infinite;
+    pointer-events: none;
+}
+
+.feature-card:hover::before,
+.gamemode-card:hover::before {
+    opacity: 1;
+}
+
+/* Shine effect on hover */
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::after {
+    animation: shine 0.7s ease;
+}
+
+/* Smooth card transitions */
+.feature-card,
+.gamemode-card,
+.staff-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* Background particles effect */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 79, 121, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 210, 106, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(255, 79, 121, 0.05) 0%, transparent 50%);
+    animation: particleMove 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes particleMove {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+/* Stagger animation delays for cards */
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+.feature-card:nth-child(5) { animation-delay: 0.5s; }
+.feature-card:nth-child(6) { animation-delay: 0.6s; }
+
+.gamemode-card:nth-child(1) { animation-delay: 0.1s; }
+.gamemode-card:nth-child(2) { animation-delay: 0.2s; }
+.gamemode-card:nth-child(3) { animation-delay: 0.3s; }
+.gamemode-card:nth-child(4) { animation-delay: 0.4s; }
+.gamemode-card:nth-child(5) { animation-delay: 0.5s; }
+.gamemode-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Text reveal animation */
+@keyframes textReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-title,
+.hero-title {
+    animation: textReveal 0.8s ease-out;
+}
+
+.page-subtitle,
+.hero-subtitle {
+    animation: textReveal 1s ease-out 0.2s both;
+}

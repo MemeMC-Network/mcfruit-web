@@ -41,6 +41,25 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Typing effect for hero subtitle
+const heroSubtitle = document.querySelector('.hero-subtitle');
+if (heroSubtitle) {
+    const text = heroSubtitle.textContent;
+    heroSubtitle.textContent = '';
+    heroSubtitle.style.opacity = '1';
+    let i = 0;
+    
+    function typeWriter() {
+        if (i < text.length) {
+            heroSubtitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+        }
+    }
+    
+    setTimeout(typeWriter, 500);
+}
+
 // Scroll to top when clicked
 scrollToTopBtn.addEventListener('click', () => {
     window.scrollTo({
@@ -301,6 +320,40 @@ document.addEventListener('DOMContentLoaded', () => {
             this.appendChild(ripple);
             
             setTimeout(() => ripple.remove(), 600);
+        });
+        
+        // Magnetic button effect
+        button.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            this.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translate(0, 0)';
+        });
+    });
+    
+    // Card tilt effect on mouse move
+    document.querySelectorAll('.feature-card, .gamemode-card, .staff-card').forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
         });
     });
 });
