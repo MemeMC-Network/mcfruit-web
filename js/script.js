@@ -5,6 +5,33 @@ scrollToTopBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="current
 scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
 document.body.appendChild(scrollToTopBtn);
 
+// Create loading progress bar
+const progressBar = document.createElement('div');
+progressBar.className = 'loading-progress';
+document.body.appendChild(progressBar);
+
+// Show loading progress on page load
+window.addEventListener('load', () => {
+    progressBar.style.width = '100%';
+    setTimeout(() => {
+        progressBar.style.opacity = '0';
+        setTimeout(() => progressBar.remove(), 300);
+    }, 200);
+});
+
+// Parallax effect for hero section
+const hero = document.querySelector('.hero');
+if (hero) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        const heroContent = hero.querySelector('.hero-content');
+        if (heroContent && scrolled < hero.offsetHeight) {
+            heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+            heroContent.style.opacity = 1 - (scrolled / hero.offsetHeight);
+        }
+    });
+}
+
 // Show/hide scroll to top button
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
@@ -203,6 +230,23 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Animated number counter
+function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+    }, 16);
+}
+
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
@@ -214,6 +258,17 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
+            
+            // Animate numbers in stat boxes
+            if (entry.target.classList.contains('stat-number') || entry.target.classList.contains('info-value')) {
+                const text = entry.target.textContent.trim();
+                const number = parseInt(text.replace(/[^0-9]/g, ''));
+                if (!isNaN(number) && number > 0) {
+                    entry.target.textContent = '0';
+                    animateCounter(entry.target, number, 1500);
+                    if (text.includes('+')) entry.target.textContent += '+';
+                }
+            }
         }
     });
 }, observerOptions);
@@ -265,6 +320,39 @@ ipElements.forEach(el => {
     // Make IP elements focusable for keyboard navigation
     el.setAttribute('tabindex', '0');
     el.style.cursor = 'text';
+});
+
+// Link preview on hover
+document.querySelectorAll('a[href^="http"]').forEach(link => {
+    link.addEventListener('mouseenter', function(e) {
+        const url = this.getAttribute('href');
+        if (!url || url === '#') return;
+        
+        const tooltip = document.createElement('div');
+        tooltip.className = 'link-tooltip';
+        tooltip.textContent = new URL(url).hostname;
+        tooltip.style.left = e.pageX + 'px';
+        tooltip.style.top = (e.pageY - 40) + 'px';
+        document.body.appendChild(tooltip);
+        
+        setTimeout(() => tooltip.classList.add('show'), 10);
+        
+        this.addEventListener('mouseleave', () => {
+            tooltip.classList.remove('show');
+            setTimeout(() => tooltip.remove(), 200);
+        }, { once: true });
+    });
+});
+
+// Copy link on right-click for external links
+document.querySelectorAll('a[href^="http"]').forEach(link => {
+    link.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        const url = this.getAttribute('href');
+        navigator.clipboard.writeText(url).then(() => {
+            showToast('Link copied to clipboard!', 'success');
+        });
+    });
 });
 
 // Keyboard shortcuts help modal
