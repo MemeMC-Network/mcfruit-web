@@ -1477,6 +1477,11 @@ section {
     color: #000;
 }
 
+.category-badge.management {
+    background: linear-gradient(135deg, var(--pink), #f34165);
+    color: white;
+}
+
 .category-badge.admin {
     background: linear-gradient(135deg, var(--pink), #ff1744);
     color: white;
@@ -1550,6 +1555,11 @@ section {
 .staff-role.owner {
     background: linear-gradient(135deg, #FFD700, #FFA500);
     color: #000;
+}
+
+.staff-role.management {
+    background: linear-gradient(135deg, var(--pink), #f34165);
+    color: white;
 }
 
 .staff-role.admin {
